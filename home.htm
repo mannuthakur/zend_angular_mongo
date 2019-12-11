@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+<!---/////####### angualar app.js   #######////---->
+<script type="text/javascript" src="app.js"></script>
+<style type="text/css">
+	img{width:200px; height:200px;}
+</style>
+<div ng-app="crudapp" ng-controller="AppController">
+<center><h1>Home Page</h1></center>
+<h3>{{message}}</h3>
+	<form name="form1" novalidate>
+		<table width="25%" border="0">
+			<tr> 
+				<td>Name</td>
+				<td><input type="text" name="name" ng-model="name" required class="validate">
+				 <span ng-show="form1.$submitted && form1.name.$error.required" class="text-danger">Name required!</span>
+				</td>
+			</tr>
+			<tr> 
+				<td>Age</td>
+				<td><input type="text" name="age" ng-model="age" required class="validate">
+				 <span ng-show="form1.$submitted && form1.age.$error.required" class="text-danger">age required!</span>
+				</td>
+			</tr>
+			<tr> 
+				<td>Email</td>
+				<td><input type="text" name="email" ng-model="email" required class="validate" >
+				 <span ng-show="form1.$submitted && form1.email.$error.required" class="text-danger">email required!</span>
+				 
+				</td>
+			</tr>
+
+				
+			<tr> 
+				<td></td>
+				<td>
+					<button ng-click="form1.$valid && SendData();"  ng-if="addbtn" class="btn btn-primary waves-effect waves-light"><i class="fa fa-plus"></i> Add</button>
+
+					<button ng-click="form1.$valid && UpadteIt();"  ng-if="updatebtn" class="btn btn-primary waves-effect waves-light"><i class="fa fa-plus"></i> Edit</button>
+				</td>
+
+			</tr>
+		</table>
+	</form>
+
+
+<table width='80%' border=0>
+
+	<tr bgcolor='#CCCCCC'>
+		<td>Name</td>
+		<td>Age</td>
+		<td>Email</td>
+		<td>Update</td>
+	</tr>
+	 				<tbody>
+                        <tr ng-repeat="item in items">
+                            <td>{{item.name}}</td>
+                            <td>{{item.age}}</td>
+                            <td>{{item.email}}</td>
+                            <td>
+                                <button ng-click="EditIt(item._id.$oid, item.name, item.email, item.age);"  class="btn btn-sm btn-info waves-effect waves-light"><i class="fa fa-pencil"></i></button>
+                                <button ng-click="DeleteIt(item._id.$oid);" class="btn btn-sm btn-danger waves-effect waves-light"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                        	<td>{{ResponseDetails}}</td>
+                        </tr>
+                    </tbody>
+	
+	</div>
+
+	</body>

@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>Add Data</title>
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+   
+    <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body ng-app="crudapp">
+
+		  
+	
+
+	<br><a href="#!list">Home</a>
+	<br><a href="#!add">Add User</a>
+
+	<br/><br/>
+	
+<div ng-view></div>
+ {{message}}
+
+
+	<form name="form1" novalidate>
+		<table width="25%" border="0">
+			<tr> 
+				<td>Name</td>
+				<td><input type="text" name="name" ng-model="name" required class="validate">
+				 <span ng-show="form1.$submitted && form1.name.$error.required" class="text-danger">Name required!</span>
+				</td>
+			</tr>
+			<tr> 
+				<td>Age</td>
+				<td><input type="text" name="age" ng-model="age" required class="validate">
+				 <span ng-show="form1.$submitted && form1.age.$error.required" class="text-danger">age required!</span>
+				</td>
+			</tr>
+			<tr> 
+				<td>Email</td>
+				<td><input type="text" name="email" ng-model="email" required class="validate">
+				 <span ng-show="form1.$submitted && form1.email.$error.required" class="text-danger">email required!</span>
+				</td>
+			</tr>
+			<tr> 
+				<td></td>
+				<td>
+					<button ng-click="form1.$valid && AddIt();"  class="btn btn-primary waves-effect waves-light"><i class="fa fa-plus"></i> Add</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+  
+</body>
+</html>
+
