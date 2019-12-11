@@ -66,3 +66,4 @@ use test
 	"email" : "krishna@example.com"
 }
 ```
+# angular_mongo
